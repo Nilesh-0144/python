@@ -1,0 +1,14 @@
+def maxsubarray(arr,k):
+    n=len(arr)
+    
+    window_sum=sum(arr[:k])
+    max_sum=window_sum
+
+    for i in range(k,n):
+        window_sum=window_sum-arr[i-k]+arr[i]
+        max_sum=max(window_sum,max_sum)
+
+    return max_sum
+arr=[2,1,3,4,2,4]
+k=3
+print(maxsubarray(arr,k))
